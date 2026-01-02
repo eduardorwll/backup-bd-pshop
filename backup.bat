@@ -41,14 +41,3 @@ for %%d in (%databases%) do (
         set /a ERROS+=1
     )
 )
-
-if %ERROS% neq 0 (
-    echo ======================================= >> "%LOG_FILE%"
-    echo Script rodou com erros. Apagando arquivos .7z e .bak >> "%LOG_FILE%"
-    echo ======================================= >> "%LOG_FILE%"
-
-    for %%d in (%databases%) do (
-        del C:\Temp\"%%d_%timestamp%".7z 
-        del C:\Temp\"%%d_%timestamp%".bak
-    )
-)
